@@ -8,15 +8,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.example.Orgs2.databinding.ProdutoBinding
-import java.util.zip.Inflater
 
 
-class RecyclerLista(private val context: Context, private val lista: MutableList<Product>) : RecyclerView.Adapter<RecyclerLista.ViewHolder>() {
+class RecyclerLista(private val context: Context, private val lista: MutableList<Product>) :
+    RecyclerView.Adapter<RecyclerLista.ViewHolder>() {
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view){
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        fun vincula(produto : Product) {
+        fun vincula(produto: Product) {
 
             itemView.findViewById<TextView>(R.id.produtoNome).text = produto.name
             itemView.findViewById<TextView>(R.id.produtoDesc).text = produto.desc
@@ -24,8 +23,9 @@ class RecyclerLista(private val context: Context, private val lista: MutableList
             itemView.findViewById<ImageView>(R.id.produtoImagem).load(produto.image)
         }
     }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerLista.ViewHolder {
-       return ViewHolder(LayoutInflater.from(context).inflate(R.layout.produto, parent, false))
+        return ViewHolder(LayoutInflater.from(context).inflate(R.layout.produto, parent, false))
     }
 
     override fun onBindViewHolder(holder: RecyclerLista.ViewHolder, position: Int) {

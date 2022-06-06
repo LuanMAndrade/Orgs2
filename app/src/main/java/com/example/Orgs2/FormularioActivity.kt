@@ -1,9 +1,9 @@
 package com.example.Orgs2
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import coil.load
 import com.example.Orgs2.DAO.Companion.dao
 import com.example.Orgs2.databinding.ActivityFormularioBinding
@@ -11,7 +11,7 @@ import com.example.Orgs2.databinding.DialogAlertBinding
 
 class FormularioActivity : AppCompatActivity() {
 
-    var url : String? = null
+    var url: String? = null
     val binding by lazy {
         ActivityFormularioBinding.inflate(layoutInflater)
     }
@@ -27,7 +27,8 @@ class FormularioActivity : AppCompatActivity() {
                 .setView(binding2.root)
                 .setPositiveButton("Confirmar", { _, _ ->
                     binding.formularioImage.load(url)
-                    binding.formularioImage.refreshDrawableState() })
+                    binding.formularioImage.refreshDrawableState()
+                })
                 .setNegativeButton("Cancelar", { _, _ -> })
                 .show()
 
@@ -42,7 +43,7 @@ class FormularioActivity : AppCompatActivity() {
         }
 
 
-        binding.formularioButton.setOnClickListener{
+        binding.formularioButton.setOnClickListener {
             val nome = binding.formularioNameText.text.toString()
             val descricao = binding.formularioDescText.text.toString()
             val valor = binding.formularioValueText.text.toString().ifBlank { "0.00" }
@@ -53,8 +54,5 @@ class FormularioActivity : AppCompatActivity() {
         }
 
 
-
-
-
-        }
     }
+}
